@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Projects - Elegant Catering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* SECTION STYLES */
+    section.projects {
+      padding: 80px 10%;
+      background: #fff8f1;
+      text-align: center;
+      position: relative;
+    }
+
+    .projects h2 {
+      font-size: 2.8rem;
+      color: #e67e22;
+      margin-bottom: 10px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .projects p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 50px;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    /* PROJECT GRID */
+    .project-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 300px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease-out;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-content {
+      padding: 20px;
+    }
+
+    .project-content h3 {
+      color: #e67e22;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .project-content p {
+      color: #555;
+      font-size: 1rem;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      .project-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- OUR PROJECTS SECTION -->
+  <section class="projects" id="projects">
+    <h2>Our Projects</h2>
+    <p>Take a glimpse at some of our recent catering experiences for traditional and modern celebrations.</p>
+
+    <div class="project-grid">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1601050690597-0c049f2a42f2?auto=format&fit=crop&w=800&q=80" alt="Wedding Catering">
+        <div class="project-content">
+          <h3>Wedding Celebration</h3>
+          <p>A grand traditional South Indian wedding where we served 800+ guests with an authentic banana leaf feast.</p>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1616627974398-8124a43b3e79?auto=format&fit=crop&w=800&q=80" alt="Housewarming Catering">
+        <div class="project-content">
+          <h3>Grihapravesham Feast</h3>
+          <p>Pure vegetarian menu for a sacred housewarming ceremony, featuring temple-style prasadam and sweets.</p>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1598965402089-9d86b61f0ee0?auto=format&fit=crop&w=800&q=80" alt="Engagement Catering">
+        <div class="project-content">
+          <h3>Engagement Event</h3>
+          <p>A modern engagement party with live food counters and a fusion menu blending tradition and style.</p>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1601050811818-710f82f98e7d?auto=format&fit=crop&w=800&q=80" alt="Upanayanam Catering">
+        <div class="project-content">
+          <h3>Upanayanam Function</h3>
+          <p>A sacred Brahmin upanayanam ceremony where we served authentic Iyengar-style cuisine on banana leaves.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Scroll-triggered animation for project cards
+    const projectCards = document.querySelectorAll('.project-card');
+    window.addEventListener('scroll', () => {
+      projectCards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          card.classList.add('visible');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
